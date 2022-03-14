@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dustin/gojson"
+	json "github.com/dustin/gojson"
 )
 
 func arreq(a, b []string) bool {
@@ -57,6 +57,10 @@ func unescape(s string) string {
 	}
 	w += copy(t[w:], s[start:])
 	return string(t[0:w])
+}
+
+func ParseJsonPtr(s string) []string {
+	return parsePointer(s)
 }
 
 func parsePointer(s string) []string {
